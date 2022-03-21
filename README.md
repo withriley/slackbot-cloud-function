@@ -6,6 +6,14 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 ![auto-release](https://github.com/withriley/slackbot-cloud-function/actions/workflows/release.yml/badge.svg)
 ![bandit python security](https://github.com/withriley/slackbot-cloud-function/actions/workflows/bandit.yml/badge.svg)
 
+## Slackbot Usage Instructions
+
+1. Consume the module in your Terraform using the syntax in the [`/examples`](examples/README.md) folder. Or see `Examples` section below!
+2. You will need to provide your Python function that will act as the Worker instance to perform the commands that you want. An example of what this looks like can be found in [`/examples`](examples/worker_function_example)
+3. You will need to generate a new [Slack App](https://api.slack.com/apps/) and get the 'Signing Secret' from the main page - this will need to be used for the `var.slack_secret` variable.
+4. Once the Cloud Function has been spun up you can use the ouput `"function_url"` to get the `http` link for use in creating a new `/slash` command. This can be created in the `Slash Commands` section of your new Slack App.
+5. Once the command is created and the Slack App installed into your Slack org you can begin using it!
+
 ## Template Usage Instructions :sparkles:
 
 1. Ensure you create your Terraform Module in the root of this directory
@@ -14,11 +22,12 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 
 ## GitHub Actions
 
-This repo has 3 built in GitHub Actions:
+This repo has 4 built in GitHub Actions:
 
 1. Security scan using tfsec - ensure no IaC errors. To delete remove the file `.github/workflows/main.yml`
 2. Terraform-Docs - documentation is automatically taken care of by Terraform-Docs which fills in info in the `README.md` of each section.
 3. Automated release - Create new releases by creating tags with the name `v220317` - e.g. version by v-Year-Month-Day - also known as CalVer.
+4. Bandit Python Security Checks.
 
 <!-- BEGIN_TF_DOCS -->
 
@@ -64,7 +73,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_function_url"></a> [function\_url](#output\_function\_url) | The URL that will need to be provided to your Slackbot. |
 <!-- END_TF_DOCS -->
 
 ## Detailed TF Module Requirements :books:
