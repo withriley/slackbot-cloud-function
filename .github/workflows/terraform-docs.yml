@@ -1,8 +1,5 @@
 name: Generate Terraform Documentation
 on:
-  push:
-    branches:
-      - main
   pull_request:
 jobs:
   docs:
