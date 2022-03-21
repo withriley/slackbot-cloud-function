@@ -1,0 +1,5 @@
+google-api-python-client
+google-cloud-container
+google-cloud-pubsub
+flask
+slackclient
