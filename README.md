@@ -6,7 +6,7 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 ![auto-release](https://github.com/withriley/slackbot-cloud-function/actions/workflows/release.yml/badge.svg)
 ![bandit python security](https://github.com/withriley/slackbot-cloud-function/actions/workflows/bandit.yml/badge.svg)
 
-## Usage Instructions :sparkles:
+## Template Usage Instructions :sparkles:
 
 1. Ensure you create your Terraform Module in the root of this directory
 2. Create new examples in `/examples/`
