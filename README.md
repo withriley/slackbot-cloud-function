@@ -1,9 +1,10 @@
-# template-terraform-module
-A Template for creating your own Terraform Modules :robot:
+# slackbot-cloud-function
+A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 
-![TFSec Security Checks](https://github.com/withriley/template-terraform-module/actions/workflows/main.yml/badge.svg)
-![terraform-docs](https://github.com/withriley/template-terraform-module/actions/workflows/terraform-docs.yml/badge.svg)
-![auto-release](https://github.com/withriley/template-terraform-module/actions/workflows/release.yml/badge.svg)
+![TFSec Security Checks](https://github.com/withriley/slackbot-cloud-function/actions/workflows/main.yml/badge.svg)
+![terraform-docs](https://github.com/withriley/slackbot-cloud-function/actions/workflows/terraform-docs.yml/badge.svg)
+![auto-release](https://github.com/withriley/slackbot-cloud-function/actions/workflows/release.yml/badge.svg)
+![bandit python security](https://github.com/withriley/slackbot-cloud-function/actions/workflows/bandit.yml/badge.svg)
 
 ## Usage Instructions :sparkles:
 
