@@ -8,7 +8,7 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 
 ## Architecture
 
-![architecture diagram](images/architecture.png)
+![architecture diagram](images/architecture_slack.png)
 
 ## Slackbot Usage Instructions
 
