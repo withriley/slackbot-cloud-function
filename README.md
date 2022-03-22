@@ -6,6 +6,10 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 ![auto-release](https://github.com/withriley/slackbot-cloud-function/actions/workflows/release.yml/badge.svg)
 ![bandit python security](https://github.com/withriley/slackbot-cloud-function/actions/workflows/bandit.yml/badge.svg)
 
+## Architecture
+
+![architecture diagram](images/architecture.png)
+
 ## Slackbot Usage Instructions
 
 1. Consume the module in your Terraform using the syntax in the [`/examples`](examples/README.md) folder. Or see `Examples` section below!
@@ -13,6 +17,15 @@ A Cloud Function driven Slackbot that responds to `/slash` commands! :robot:
 3. You will need to generate a new [Slack App](https://api.slack.com/apps/) and get the 'Signing Secret' from the main page - this will need to be used for the `var.slack_secret` variable.
 4. Once the Cloud Function has been spun up you can use the ouput `"function_url"` to get the `http` link for use in creating a new `/slash` command. This can be created in the `Slash Commands` section of your new Slack App.
 5. Once the command is created and the Slack App installed into your Slack org you can begin using it!
+
+## Requirements
+
+1. This module enables them but the following APIs are required to be enabled:
+   1. Pub/Sub
+   2. Cloud Functions
+   3. Secrets Manager
+   4. Cloud Build
+2. You will also need to be able to add unauthenticated users to the IAM invokers so any org policies enforcing authenticated users will break this. Review your org policies first!
 
 ## Template Usage Instructions :sparkles:
 

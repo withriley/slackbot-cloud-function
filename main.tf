@@ -10,6 +10,9 @@ resource "google_pubsub_topic" "main" {
   name                       = var.name
   project                    = var.project
   message_retention_duration = "86600s"
+  depends_on = [
+    google_project_service.project
+  ]
 }
 
 data "archive_file" "source" {
@@ -54,6 +57,10 @@ resource "google_cloudfunctions_function" "function" {
 
   trigger_http = each.value.settings ? null : true
   entry_point  = each.key
+
+  depends_on = [
+    google_project_service.project
+  ]
 }
 
 # IAM entry for all users to invoke the function
@@ -65,10 +72,16 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
 
   role   = "roles/cloudfunctions.invoker"
   member = each.value.member
+  depends_on = [
+    google_project_service.project
+  ]
 }
 
 resource "google_project_iam_binding" "project_binding" {
   project = var.project
   role    = "roles/pubsub.publisher"
-  members = ["serviceAccount:${google_cloudfunctions_function.function["${var.name}-slackbot-listener"].service_account_email}"]
+  members = ["serviceAccount:${google_cloudfunctions_function.function["${var.name}"].service_account_email}"]
+  depends_on = [
+    google_project_service.project
+  ]
 }

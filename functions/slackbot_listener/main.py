@@ -6,7 +6,7 @@ import json
 from google.cloud import pubsub_v1
 from slack.signature import SignatureVerifier
 
-def send_gke_req(request):
+def slackbot_listener(request):
     print(request)
 
     raw_request = request.get_data().decode()

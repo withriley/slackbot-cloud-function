@@ -4,7 +4,7 @@ import base64
 import json
 import requests
 
-def receive_gke_req(event, context):
+def worker_function_example(event, context):
     slack_request = json.loads(base64.b64decode(event['data']))
     response_url = slack_request["data"]["response_url"]
 
