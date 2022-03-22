@@ -1,5 +1,5 @@
 module "slackbot" {
-  source                = "../"
+  source                = "github.com/withriley/slackbot-cloud-function"
   name                  = var.name
   path                  = var.path
   description           = var.description
