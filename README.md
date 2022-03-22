@@ -49,8 +49,18 @@ This repo has 4 built in GitHub Actions:
 
 ```hcl
 module "slackbot" {
-    source = "../"
-    
+  source                = "../"
+  name                  = var.name
+  path                  = var.path
+  description           = var.description
+  project               = var.project
+  region                = var.region
+  slack_secret          = var.slack_secret
+  environment_variables = var.environment_variables
+}
+
+output "url" {
+  value = module.slackbot.function_url
 }
 ```
 
@@ -61,6 +71,7 @@ module "slackbot" {
 | [google_cloudfunctions_function.function](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions_function) | resource |
 | [google_cloudfunctions_function_iam_member.invoker](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/cloudfunctions_function_iam_member) | resource |
 | [google_project_iam_binding.project_binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_binding) | resource |
+| [google_project_service.project](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [google_pubsub_topic.main](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) | resource |
 | [google_secret_manager_secret.secret](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret) | resource |
 | [google_secret_manager_secret_version.version](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/secret_manager_secret_version) | resource |
@@ -77,7 +88,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_description"></a> [description](#input\_description) | The description of your function | `string` | n/a | yes |
-| <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | Any additional environment variables you want inside the Slackbot Functions | `map(any)` | n/a | yes |
+| <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | Any additional environment variables you want inside the Slackbot Functions | `map(any)` | `{}` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of your function | `string` | n/a | yes |
 | <a name="input_path"></a> [path](#input\_path) | The path of your function | `string` | n/a | yes |
 | <a name="input_project"></a> [project](#input\_project) | The project you wish to deploy the Slackbot Functions in | `string` | n/a | yes |
