@@ -49,7 +49,7 @@ This repo has 4 built in GitHub Actions:
 
 ```hcl
 module "slackbot" {
-  source                = "../"
+  source                = "github.com/withriley/slackbot-cloud-function"
   name                  = var.name
   path                  = var.path
   description           = var.description
